@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  justify-self: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  width: 95%;
+  height: 10%;
+  background-color: #ecdada;
+  border-radius: 10px;
+}
+
+.menu {
+  margin-left: 5%;
+}
+
+.shoppingbag {
+  margin-right: 5%;
+}
+
+.badge {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #dc6b5c;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+.logoDesktop,
+.shoppingbagDesktop,
+.onglets {
+  display: none;
+}
+
+.popover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 80px;
+  left: 10px;
+  width: 150px;
+  height: 80%;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.buttonPopover {
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-top: 15px;
+}
+
+@media (min-width: 1024px) {
+  .menu,
+  .shoppingbag,
+  .logo {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.3%;
+    width: 99%;
+    height: 10%;
+    background-color: #ecdada;
+    border-radius: 10px;
+  }
+
+  .logoDesktop {
+    display: flex;
+  }
+
+  .onglets {
+    display: flex;
+    width: 260px;
+    justify-content: space-between;
+  }
+
+  .button {
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .shoppingbagDesktop {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+  }
+
+  .popover {
+    display: none;
+  }
+
+  .badgeDesktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #dc6b5c;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: absolute;
+  }
+}

@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-top: 0.3%;
+  width: 99%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.photoCard {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  background-color: #ecdada;
+  border-radius: 10px;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.headInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  margin-top: 5px;
+}
