@@ -27,40 +27,50 @@ const Panier = ({ onClose }) => {
           alignItems: "center",
         }}
       >
-        <hr style={{ width: "100%", margin: "0.5rem 0" }} />
+        <hr style={{ width: "100%" }} />
       </div>
       <div className={style.productContainer}>
         <BasketProduct />
         <BasketProduct />
         <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
       </div>
-      <hr style={{ width: "100%", margin: "0.5rem 0" }} />
-      <div className={style.headProduct} style={{ marginTop: "10px" }}>
-        <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
-          Total estimé
-        </span>
-        <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
-          19,90€ EUR
-        </span>
+
+      <div className={style.footer}>
+        <hr style={{ width: "100%" }} />
+        <div className={style.headProduct}>
+          <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+            Total estimé
+          </span>
+          <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+            19,90€ EUR
+          </span>
+        </div>
+        <div className={style.taxes}>
+          Taxes incluses. Réductions et{" "}
+          <span style={{ textDecoration: "underline" }}>
+            frais d’expédition
+          </span>{" "}
+          calculés à l’étape du paiement.
+        </div>
+        <button
+          className={style.btn}
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            padding: "0.5rem 1rem",
+            borderRadius: "5px",
+            border: "none",
+            cursor: "pointer",
+            marginTop: "30px",
+          }}
+        >
+          Procéder au paiement
+        </button>
       </div>
-      <div className={style.taxes}>
-        Taxes incluses. Réductions et{" "}
-        <span style={{ textDecoration: "underline" }}>frais d’expédition</span>{" "}
-        calculés à l’étape du paiement.
-      </div>
-      <button
-        style={{
-          backgroundColor: "black",
-          color: "white",
-          padding: "0.5rem 1rem",
-          borderRadius: "5px",
-          border: "none",
-          cursor: "pointer",
-          marginTop: "20px",
-        }}
-      >
-        Procéder au paiement
-      </button>
     </div>
   );
 };

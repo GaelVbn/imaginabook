@@ -1,5 +1,10 @@
-import styles from "./page.module.css";
+import style from "./components/Boutique/Boutique.module.css";
+import Boutique from "./components/Boutique/Boutique";
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div className={style.container}>
+      <Boutique />
+    </div>
+  );
 }
