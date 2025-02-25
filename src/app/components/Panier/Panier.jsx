@@ -48,20 +48,20 @@ const Panier = () => {
             </span>{" "}
             calculés à l’étape du paiement.
           </p>
-        </div>
-        <button
-          className={style.btn}
-          style={{
-            backgroundColor: "black",
-            color: "white",
+          <button
+            className={style.btn}
+            style={{
+              backgroundColor: "black",
+              color: "white",
 
-            borderRadius: "5px",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Procéder au paiement
-        </button>
+              borderRadius: "5px",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Procéder au paiement
+          </button>
+        </div>
       </div>
     </div>
   );
