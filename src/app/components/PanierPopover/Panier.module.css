@@ -145,6 +145,10 @@
     min-height: 620px;
   }
 
+  .headProduct {
+    margin-top: 2%;
+  }
+
   .taxes {
     display: flex;
     flex-direction: column;

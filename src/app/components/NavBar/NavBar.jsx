@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./NavBar.module.css";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -8,8 +8,12 @@ import logo from "../../../../public/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import Panier from "../PanierPopover/Panier";
+import { useDispatch } from "react-redux";
+import { setIsVisible } from "../../reducers/style.reducer";
 
-const NavBar = () => {
+const NavBar = ({ isShowed }) => {
+  const dispatch = useDispatch();
+
   const [showPopover, setShowPopover] = useState(false);
   const [showPopoverPanier, setShowPopoverPanier] = useState(false);
 
@@ -19,14 +23,26 @@ const NavBar = () => {
 
   const togglePopoverPanier = () => {
     setShowPopoverPanier((prev) => !prev);
+    isShowed(!showPopoverPanier);
   };
 
   const closePanier = () => {
     setShowPopoverPanier(false);
+    isShowed(!showPopoverPanier);
   };
 
+  useEffect(() => {
+    dispatch(setIsVisible(showPopoverPanier));
+  }, [showPopoverPanier]);
+
   return (
-    <nav className={style.container}>
+    <nav
+      className={style.container}
+      style={{
+        backgroundColor: showPopoverPanier ? "rgba(100, 100, 100, 0.9)" : "",
+        transition: "background-color 0.3s ease-in-out",
+      }}
+    >
       <div className={style.menu} onClick={togglePopover}>
         {showPopover ? (
           <RxCross2 style={{ fontSize: "2.3rem" }} />
@@ -45,7 +61,7 @@ const NavBar = () => {
         </div>
       )}
       <Link href="/" className={style.logo}>
-        <Image src={logo} alt="Logo" width={230} height={125} priority />
+        <Image src={logo} alt="Logo" width={230} height={125} priority={true} />
       </Link>
       <div className={style.shoppingbag}>
         <span className={style.badge}>0</span>
