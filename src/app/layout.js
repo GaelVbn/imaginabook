@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
         >
           <Navbar isShowed={isShowed} />
           <main>{children}</main>
-          {/*<Footer isVisible={isVisible} />*/}
+          <Footer isVisible={isVisible} />
         </body>
       </html>
     </Provider>

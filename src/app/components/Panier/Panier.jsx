@@ -27,6 +27,12 @@ const Panier = () => {
         <BasketProduct />
         <BasketProduct />
         <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
+        <BasketProduct />
       </div>
 
       <div className={style.footer}>
