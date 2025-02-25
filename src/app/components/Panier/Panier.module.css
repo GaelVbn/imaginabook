@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  width: 95%;
+  height: fit-content;
+  padding: 3%;
+}
+
+.headProduct {
+  display: flex;
+  width: 85%;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  justify-self: center;
+  padding: 10px;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.taxes {
+  display: inline-;
+  width: 80%;
+  font-size: 0.8rem;
+  color: #666;
+  justify-self: center;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 90%;
+  margin-bottom: 15px;
+  margin-top: 10%;
+  padding: 8px;
+}

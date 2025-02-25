@@ -16,6 +16,7 @@ const NavBar = ({ isShowed }) => {
 
   const [showPopover, setShowPopover] = useState(false);
   const [showPopoverPanier, setShowPopoverPanier] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const togglePopover = () => {
     setShowPopover((prev) => !prev);
@@ -33,7 +34,20 @@ const NavBar = ({ isShowed }) => {
 
   useEffect(() => {
     dispatch(setIsVisible(showPopoverPanier));
-  }, [showPopoverPanier]);
+  }, [showPopoverPanier, dispatch]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1024);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <nav
@@ -65,10 +79,16 @@ const NavBar = ({ isShowed }) => {
       </Link>
       <div className={style.shoppingbag}>
         <span className={style.badge}>0</span>
-        <LiaShoppingBagSolid
-          style={{ fontSize: "2.3rem" }}
-          onClick={togglePopoverPanier}
-        />
+        {isSmallScreen ? (
+          <Link href="/panierPage">
+            <LiaShoppingBagSolid style={{ fontSize: "2.3rem" }} />
+          </Link>
+        ) : (
+          <LiaShoppingBagSolid
+            style={{ fontSize: "2.3rem" }}
+            onClick={togglePopoverPanier}
+          />
+        )}
         {showPopoverPanier && <Panier onClose={closePanier} />}
       </div>
 
@@ -85,10 +105,18 @@ const NavBar = ({ isShowed }) => {
       </div>
       <div className={style.shoppingbagDesktop}>
         <span className={style.badgeDesktop}>0</span>
-        <LiaShoppingBagSolid
-          style={{ fontSize: "2.3rem", cursor: "pointer", padding: "5px" }}
-          onClick={togglePopoverPanier}
-        />
+        {isSmallScreen ? (
+          <Link href="/panierPage">
+            <LiaShoppingBagSolid
+              style={{ fontSize: "2.3rem", cursor: "pointer", padding: "5px" }}
+            />
+          </Link>
+        ) : (
+          <LiaShoppingBagSolid
+            style={{ fontSize: "2.3rem", cursor: "pointer", padding: "5px" }}
+            onClick={togglePopoverPanier}
+          />
+        )}
         {showPopoverPanier && <Panier onClose={closePanier} />}
       </div>
     </nav>
