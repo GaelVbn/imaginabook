@@ -16,8 +16,8 @@ const BasketProduct = () => {
           <p>Titre</p>
           <span>19,90€</span>
         </div>
-        <span style={{ fontSize: "12px", marginBottom: "20px" }}>PDF</span>
-        <span style={{ fontSize: "12px", marginBottom: "5px" }}>19,90€</span>
+        <span style={{ fontSize: "1rem", marginBottom: "20px" }}>PDF</span>
+        <span style={{ fontSize: "1rem", marginBottom: "5px" }}>19,90€</span>
         <div
           style={{
             display: "flex",

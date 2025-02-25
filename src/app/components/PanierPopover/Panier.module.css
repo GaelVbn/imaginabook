@@ -4,21 +4,23 @@
   flex-direction: column;
   top: 0px;
   right: 0px;
-  width: 300px;
-  height: 96%;
+  width: 80%;
+  height: 100vh;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  padding: 10px;
 }
 
 .head {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: center;
+  width: 95%;
   height: fit-content;
+  padding: 3%;
 }
 
 .headProduct {
@@ -28,9 +30,8 @@
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  margin-top: 15px;
-  margin-bottom: 15px;
   justify-self: center;
+  padding: 10px;
 }
 
 .productContainer {
@@ -43,12 +44,11 @@
 }
 
 .taxes {
-  display: inline-block;
+  display: inline-;
   width: 80%;
   font-size: 0.8rem;
   color: #666;
-  text-align: left;
-  margin-left: 15px;
+  justify-self: center;
 }
 .btn {
   display: flex;
@@ -57,6 +57,8 @@
   justify-self: center;
   width: 90%;
   margin-bottom: 15px;
+  margin-top: 10%;
+  padding: 8px;
 }
 .footer {
   position: relative;
@@ -70,11 +72,10 @@
     flex-direction: column;
     right: 0px;
     width: 500px;
-    height: 98%;
+    height: 100vh;
     background-color: #ffffff;
     border: none;
     border-radius: none;
-    padding: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
   }
@@ -84,7 +85,7 @@
     justify-content: space-between;
     align-items: center;
     height: fit-content;
-    margin-bottom: 15px;
+    padding: 3%;
   }
 
   .headProduct {
@@ -94,7 +95,7 @@
     justify-content: space-between;
     align-items: center;
     height: fit-content;
-    margin-bottom: 15px;
+    padding: 0px;
   }
 
   .productContainer {
@@ -106,14 +107,30 @@
   }
 
   .taxes {
-    display: inline;
-    align-self: center;
-    width: 60%;
-    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    font-size: 0.7rem;
     color: #666;
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 0%;
+    width: 85%;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    width: 90%;
+    margin-bottom: 0px;
+    margin-top: 0%;
+    padding: 3%;
+    font-weight: bold;
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
   }
 }
 
@@ -129,8 +146,26 @@
   }
 
   .taxes {
-    width: 50%;
-    font-size: 1rem;
-    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 0%;
+    width: 100%;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    width: 90%;
+    margin-bottom: 0px;
+    margin-top: 2%;
+    padding: 3%;
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
   }
 }

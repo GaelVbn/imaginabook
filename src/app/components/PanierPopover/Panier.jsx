@@ -50,22 +50,24 @@ const Panier = ({ onClose }) => {
           </span>
         </div>
         <div className={style.taxes}>
-          Taxes incluses. Réductions et{" "}
-          <span style={{ textDecoration: "underline" }}>
-            frais d’expédition
-          </span>{" "}
-          calculés à l’étape du paiement.
+          <p>
+            {" "}
+            Taxes incluses. Réductions et{" "}
+            <span style={{ textDecoration: "underline" }}>
+              frais d’expédition
+            </span>{" "}
+            calculés à l’étape du paiement.
+          </p>
         </div>
         <button
           className={style.btn}
           style={{
             backgroundColor: "black",
             color: "white",
-            padding: "0.5rem 1rem",
+
             borderRadius: "5px",
             border: "none",
             cursor: "pointer",
-            marginTop: "30px",
           }}
         >
           Procéder au paiement
