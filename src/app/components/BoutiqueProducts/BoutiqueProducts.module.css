@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 10%;
+}
+.photo {
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: #ecdada;
+}
+
+.photo > img {
+  width: 120px;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .photo {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    border-radius: 10%;
+    background-color: #ecdada;
+  }
+  .photo > img {
+    width: 200px;
+    height: auto;
+  }
+}

@@ -4,7 +4,7 @@ import Boutique from "./components/Boutique/Boutique";
 
 export default function Home() {
   return (
-    <div className={style.container}>
+    <div className={style.containerG}>
       <Boutique />
     </div>
   );
