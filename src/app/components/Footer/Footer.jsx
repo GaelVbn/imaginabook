@@ -3,16 +3,12 @@ import style from "./Footer.module.css";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
-  const isOpacity = useSelector((state) => state.style.isVisible);
+  const date = new Date().getFullYear();
   return (
-    <footer
-      className={style.container}
-      style={{
-        backgroundColor: isOpacity ? "rgba(100, 100, 100, 0.9)" : "",
-        transition: "background-color 0.3s ease-in-out",
-      }}
-    >
-      <p>&copy; 2023 Mon Application</p>
+    <footer className={style.container}>
+      <p style={{ fontSize: "10px" }}>
+        &copy; {date} GaelVbn - Tous droits réservés
+      </p>
     </footer>
   );
 };

@@ -3,8 +3,10 @@
   justify-self: center;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 97%;
   height: 10%;
+  border: 5px solid #fff6e6;
+  border-radius: 20px;
   background-color: #ecdada;
 }
 
@@ -77,10 +79,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 0%;
-    width: 100%;
+    width: 99%;
     height: 10%;
     background-color: #ecdada;
     border-radius: 0%;
+    border: 5px solid #fff6e6;
+    border-radius: 20px;
   }
 
   .logoDesktop {

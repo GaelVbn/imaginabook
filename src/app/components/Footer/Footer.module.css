@@ -1,7 +1,9 @@
 .container {
   display: flex;
-  justify-self: ;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
-  backgroundcolor: #122222;
+  height: 10%;
+  background-color: #fff6e6;
 }

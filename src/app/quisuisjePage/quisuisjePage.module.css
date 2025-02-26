@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: #fff6e6;
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #fff6e6;
+  }
+
+  .photo {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: fit-content;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+  }
+
+  .paragraph {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    height: auto;
+  }
+  .photoProfile {
+    width: 150px;
+    height: auto;
+  }
+}

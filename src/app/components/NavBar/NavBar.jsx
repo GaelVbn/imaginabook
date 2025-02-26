@@ -50,13 +50,7 @@ const NavBar = ({ isShowed }) => {
   }, []);
 
   return (
-    <nav
-      className={style.container}
-      style={{
-        backgroundColor: showPopoverPanier ? "rgba(100, 100, 100, 0.9)" : "",
-        transition: "background-color 0.3s ease-in-out",
-      }}
-    >
+    <nav className={style.container}>
       <div className={style.menu} onClick={togglePopover}>
         {showPopover ? (
           <RxCross2 style={{ fontSize: "2.3rem" }} />
@@ -108,7 +102,11 @@ const NavBar = ({ isShowed }) => {
         {isSmallScreen ? (
           <Link href="/panierPage">
             <LiaShoppingBagSolid
-              style={{ fontSize: "2.3rem", cursor: "pointer", padding: "5px" }}
+              style={{
+                fontSize: "2.3rem",
+                cursor: "pointer",
+                padding: "5px",
+              }}
             />
           </Link>
         ) : (
