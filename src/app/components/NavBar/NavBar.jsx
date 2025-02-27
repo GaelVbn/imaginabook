@@ -61,11 +61,13 @@ const NavBar = ({ isShowed }) => {
       {showPopover && (
         <div className={style.popover}>
           <Link href="/quisuisjePage" onClick={togglePopover}>
-            <button className={style.buttonPopover}>Qui suis-je ?</button>
+            <button className={style.buttonPopover}>Notre Histoire</button>
           </Link>
+          <div className={style.divider}></div>
           <Link href="/contactPage" onClick={togglePopover}>
             <button className={style.buttonPopover}>Contactez-moi</button>
           </Link>
+          <div className={style.divider}></div>
         </div>
       )}
       <Link href="/" className={style.logo}>
@@ -91,7 +93,7 @@ const NavBar = ({ isShowed }) => {
       </Link>
       <div className={style.onglets}>
         <Link href="/quisuisjePage">
-          <button className={style.button}>Qui suis-je ?</button>
+          <button className={style.button}>Notre Histoire</button>
         </Link>
         <Link href="/contactPage">
           <button className={style.button}>Contactez-moi</button>
