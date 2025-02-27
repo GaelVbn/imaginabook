@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  background-color: #f0f0f0;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 45vh;
+  width: 70%;
+  background-color: brown;
+}
+
+.btnFormat {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  width: 100%;
+  height: fit-content;
+}
+
+.quantityBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.addToCartBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  width: 70%;
+  background-color: black;
+}

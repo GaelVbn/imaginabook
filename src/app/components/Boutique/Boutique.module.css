@@ -10,8 +10,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   height: auto;
+}
+.title {
+  color: white;
+  z-index: 1;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px black;
+  padding: 10%;
 }
 
 .head {
@@ -20,7 +27,6 @@
   align-items: center;
   width: 100%;
   height: auto;
-
   color: #000000;
   text-align: center;
 }
@@ -28,48 +34,71 @@
 .categories {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-self: center;
+  place-self: center;
   width: 90%;
   height: auto;
   color: #000000;
   text-align: center;
   gap: 5%;
   margin-bottom: 10%;
+  border-radius: 10px;
+  justify-content: center;
 }
 .labelCategory {
   display: flex;
   background-color: #fef7ff;
+  justify-content: center;
+  width: 35%;
+  height: 15vh;
   border-radius: 5px;
-  padding: 10px 10px;
+
   border: 1px solid #d3d3d3;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin-bottom: 5%;
 }
 
-.titleCategory {
-  display: flex;
-  width: 90%;
-  color: #000000;
-  text-align: center;
-  margin-left: 5%;
+.labelCategory:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-.bookContainer {
+.categoriesContainer {
   display: flex;
-  justify-content: center;
-  gap: 15%;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-self: center;
   width: 100%;
   height: auto;
-  margin-bottom: 10%;
+  margin-top: 20%;
 }
 
 @media (min-width: 1024px) {
   .container {
-    width: 80%;
+    width: 100%;
+  }
+
+  .title {
+    color: white;
+    z-index: 1;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px black;
+  }
+
+  .categoriesContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 70%;
+    margin-bottom: 2%;
+    margin-top: 4%;
+  }
+
+  .description {
+    display: flex;
+    width: 60%;
+    color: white;
+    z-index: 1;
+    font-size: 1.2rem;
   }
 
   .head {
@@ -77,42 +106,48 @@
     flex-direction: column;
     align-items: center;
     align-self: center;
-    width: 80%;
-    height: auto;
-    color: #000000;
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-
-  .titleCategory {
-    display: flex;
     width: 100%;
+    height: 30vh;
     color: #000000;
     text-align: center;
-    margin-left: 0%;
   }
 
   .categories {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     justify-self: center;
     width: 100%;
-    height: auto;
+    height: fit-content;
     color: #000000;
     text-align: center;
     gap: 2%;
     margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .labelCategory {
+    display: flex;
+    background-color: #fef7ff;
+    width: 20%;
+    height: 30vh;
+    border-radius: 5px;
+
+    border: 1px solid #d3d3d3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-bottom: 0%;
   }
 
   .bookContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    width: 100%;
-    gap: 5%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 90%;
+    gap: 0%;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 1%;
   }
 }
