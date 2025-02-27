@@ -6,32 +6,41 @@ import { CiLinkedin } from "react-icons/ci";
 const page = () => {
   return (
     <div className={style.container}>
-      <h1 className={style.title}>Contactez-moi</h1>
-      <div className={style.infoDesktop}>
-        <p className={style.text}>
-          Nous serions ravis de vous entendre. <br />
-          <br />
-          N'hésitez pas à nous contacter pour toute question ou suggestion.
-        </p>
-
+      <form className={style.infoDesktop}>
         <div className={style.card}>
-          <span>
-            <strong>Email : </strong>
-            <br />
-            Contact@imaginabook.com
-          </span>
-          <span>
-            <strong>Horaires SAV : </strong>
-            <br />
-            9h/17h du lundi au vendredi
-          </span>
-          <span>
-            <strong>SIRET : </strong>
-            <br />
-            893 805 242
-          </span>
+          <h2 className={style.title}>Contactez-nous</h2>
+          <label htmlFor="name">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Nom"
+              required
+            />
+          </label>
+          <label htmlFor="email">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </label>
+          <label htmlFor="message">
+            <textarea
+              className={style.textarea}
+              id="message"
+              name="message"
+              placeholder="message"
+              required
+            />
+          </label>
+          <button type="submit" className={style.submit}>
+            Envoyer
+          </button>
         </div>
-      </div>
+      </form>
       <div className={style.social}>
         <a
           href="https://www.linkedin.com/in/esther-vanbeveren-158a9b192/"

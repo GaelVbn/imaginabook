@@ -65,7 +65,7 @@ const NavBar = ({ isShowed }) => {
           </Link>
           <div className={style.divider}></div>
           <Link href="/contactPage" onClick={togglePopover}>
-            <button className={style.buttonPopover}>Contactez-moi</button>
+            <button className={style.buttonPopover}>Contactez-nous</button>
           </Link>
           <div className={style.divider}></div>
         </div>
@@ -96,7 +96,7 @@ const NavBar = ({ isShowed }) => {
           <button className={style.button}>Notre Histoire</button>
         </Link>
         <Link href="/contactPage">
-          <button className={style.button}>Contactez-moi</button>
+          <button className={style.button}>Contactez-nous</button>
         </Link>
       </div>
       <div className={style.shoppingbagDesktop}>
