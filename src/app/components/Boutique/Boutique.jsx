@@ -52,20 +52,7 @@ const Boutique = () => {
               backgroundPosition: "center",
             }}
           >
-            <p
-              style={{
-                width: "100%",
-                height: "10%",
-                backgroundColor: "rgba(220, 212, 195)",
-                fontSize: "1rem",
-                margin: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              18 mois / 2 ans
-            </p>
+            <p className={style.nameCategory}>18 mois / 2 ans</p>
           </div>
           <div
             className={style.labelCategory}
@@ -75,20 +62,7 @@ const Boutique = () => {
               backgroundPosition: "center",
             }}
           >
-            <p
-              style={{
-                width: "100%",
-                height: "10%",
-                backgroundColor: "rgba(220, 212, 195)",
-                fontSize: "1rem",
-                margin: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              2 / 3 ans
-            </p>
+            <p className={style.nameCategory}>2 / 3 ans</p>
           </div>
           <div
             className={style.labelCategory}
@@ -98,20 +72,7 @@ const Boutique = () => {
               backgroundPosition: "center",
             }}
           >
-            <p
-              style={{
-                width: "100%",
-                height: "10%",
-                backgroundColor: "rgba(220, 212, 195)",
-                fontSize: "1rem",
-                margin: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              4 / 6 ans
-            </p>
+            <p className={style.nameCategory}>4 / 6 ans</p>
           </div>
           <div
             className={style.labelCategory}
@@ -121,20 +82,7 @@ const Boutique = () => {
               backgroundPosition: "center",
             }}
           >
-            <p
-              style={{
-                width: "100%",
-                height: "10%",
-                backgroundColor: "rgba(220, 212, 195)",
-                fontSize: "1rem",
-                margin: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              crèche / école
-            </p>
+            <p className={style.nameCategory}>crèche / école</p>
           </div>
         </div>
       </div>
