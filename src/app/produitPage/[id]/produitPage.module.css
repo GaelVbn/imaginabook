@@ -1,51 +1,220 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  height: auto;
+  width: 80%;
+  gap: 3%;
+}
+
+.quantity {
+  display: flex;
+  justify-self: center;
+  padding-top: 15%;
+}
+
+.addToCartBtn {
+  display: flex;
+  width: 100%;
   justify-content: center;
-  height: fit-content;
-  background-color: #f0f0f0;
+  align-items: center;
+  margin-top: 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #2a628f;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.8rem 2rem;
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  height: 45vh;
-  width: 70%;
-  background-color: brown;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+  margin-top: 10%;
+}
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
 
+.TitleDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.TitleDesc p {
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  font-size: 1.5rem;
+  margin-top: 10%;
+  margin: 0%;
+}
 .btnFormat {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 6%;
   gap: 5%;
   width: 100%;
   height: fit-content;
 }
 
-.quantityBtn {
+.btnFormat button {
   display: flex;
-  flex-direction: row;
-  gap: 2%;
-  width: fit-content;
-  padding: 10px;
-  border: 1px solid #000000;
+  padding: 0.8rem 2rem;
   border-radius: 10px;
-  width: fit-content;
-  height: fit-content;
+  background-color: transparent;
+  border: 0.5px solid #343434;
+  cursor: pointer;
 }
 
-.addToCartBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  padding: 10px;
+.btnFormat button:hover {
+  background-color: orange;
   cursor: pointer;
-  width: 70%;
-  background-color: black;
+}
+
+.price {
+  display: flex;
+  font-size: 2rem;
+  margin-top: 12%;
+}
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.quantityBtn {
+  margin-top: 3%;
+  justify-self: center;
+  border: 1px solid #343434;
+  border-radius: 10px;
+  padding: 0.3rem 2rem;
+  margin-bottom: 10%;
+}
+
+.actionBtn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    justify-content: center;
+    height: 75vh;
+    width: 65%;
+    gap: 3%;
+    margin-top: 2%;
+    margin-bottom: 0%;
+  }
+
+  .quantity {
+    display: flex;
+    justify-self: center;
+  }
+
+  .TitleDesc p {
+    text-align: left;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 60%;
+    margin-top: 0%;
+  }
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+  }
+
+  .TitleDesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .title {
+    display: flex;
+    font-size: 2.5rem;
+    margin-top: 10%;
+    margin: 0%;
+  }
+  .btnFormat {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 6%;
+    gap: 5%;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .btnFormat button {
+    display: flex;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 0.5px solid #343434;
+    cursor: pointer;
+  }
+
+  .btnFormat button:hover {
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  .price {
+    display: flex;
+    font-size: 2rem;
+    margin-top: 15%;
+  }
+  .priceContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .quantityBtn {
+    margin-top: 3%;
+    margin-bottom: 0%;
+  }
+
+  .actionBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+  }
 }
