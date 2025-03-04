@@ -74,6 +74,7 @@ const page = () => {
                 className={style.addToCartBtn}
                 style={{
                   backgroundColor: "#2A628F",
+                  cursor: "pointer",
                   border: "none",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}
@@ -84,6 +85,7 @@ const page = () => {
                 className={style.addToCartBtn}
                 style={{
                   backgroundColor: "#E76F51",
+                  cursor: "pointer",
                   border: "none",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}

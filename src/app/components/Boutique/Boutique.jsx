@@ -7,8 +7,11 @@ import photo1 from "../../../../public/category/1.jpeg";
 import photo2 from "../../../../public/category/2.jpeg";
 import photo3 from "../../../../public/category/3.jpeg";
 import photo4 from "../../../../public/category/4.jpeg";
+import { useRouter } from "next/navigation";
 
 const Boutique = () => {
+  const router = useRouter();
+
   return (
     <div className={style.container}>
       <div className={style.head} style={{ position: "relative" }}>
@@ -50,7 +53,9 @@ const Boutique = () => {
               backgroundImage: `url(${photo1.src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              cursor: "pointer",
             }}
+            onClick={() => router.push("/themesPage/2")}
           >
             <p className={style.nameCategory}>18 mois / 2 ans</p>
           </div>
@@ -61,6 +66,7 @@ const Boutique = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
+            onClick={() => router.push("/themesPage/2")}
           >
             <p className={style.nameCategory}>2 / 3 ans</p>
           </div>
@@ -71,6 +77,7 @@ const Boutique = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
+            onClick={() => router.push("/themesPage/2")}
           >
             <p className={style.nameCategory}>4 / 6 ans</p>
           </div>
@@ -81,6 +88,7 @@ const Boutique = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
+            onClick={() => router.push("/themesPage/2")}
           >
             <p className={style.nameCategory}>crèche / école</p>
           </div>
