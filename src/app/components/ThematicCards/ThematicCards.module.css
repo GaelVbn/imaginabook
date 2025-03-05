@@ -27,6 +27,7 @@
   text-align: center;
   border: 1px solid #ddd;
   place-self: center;
+  cursor: pointer;
 }
 .thematic-card:hover {
   transform: scale(1.05);
