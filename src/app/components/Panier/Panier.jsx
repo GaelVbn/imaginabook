@@ -1,8 +1,11 @@
 import React from "react";
 import style from "./Panier.module.css";
 import BasketProduct from "../BasketProduct/BasketProduct";
+import { useSelector } from "react-redux";
 
 const Panier = () => {
+  const panier = useSelector((state) => state.panier.items);
+
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -24,15 +27,7 @@ const Panier = () => {
         <hr style={{ width: "100%" }} />
       </div>
       <div className={style.productContainer}>
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
-        <BasketProduct />
+        <BasketProduct panier={panier} />
       </div>
 
       <div className={style.footer}>
@@ -42,7 +37,16 @@ const Panier = () => {
             Total estimé
           </span>
           <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
-            19,90€ EUR
+            {panier
+              .reduce((total, product) => {
+                const productTotal =
+                  product.buttons === "PDF"
+                    ? product.prix_pdf * product.quantite
+                    : product.prix_physique * product.quantite;
+                return total + productTotal;
+              }, 0)
+              .toFixed(2)}
+            EUR
           </span>
         </div>
         <div className={style.taxes}>

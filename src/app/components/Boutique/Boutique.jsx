@@ -1,15 +1,9 @@
 "use client";
 import React from "react";
 import style from "./Boutique.module.css";
-import BoutiqueProducts from "../BoutiqueProducts/BoutiqueProducts";
-import Background from "../../../../public/bg.webp";
-import photo1 from "../../../../public/category/1.jpeg";
-import photo2 from "../../../../public/category/2.jpeg";
-import photo3 from "../../../../public/category/3.jpeg";
-import photo4 from "../../../../public/category/4.jpeg";
 import { useRouter } from "next/navigation";
 
-const Boutique = () => {
+const Boutique = ({ categories }) => {
   const router = useRouter();
 
   return (
@@ -22,13 +16,13 @@ const Boutique = () => {
             top: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0,0,0,0.3)",
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
             borderRadius: "0px",
           }}
         ></div>
         <div
           style={{
-            backgroundImage: `url(${Background.src})`,
+            backgroundImage: `url(/bg.webp)`, // Image de fond statique
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
@@ -47,51 +41,19 @@ const Boutique = () => {
 
       <div className={style.categoriesContainer}>
         <div className={style.categories}>
-          <div
-            className={style.labelCategory}
-            style={{
-              backgroundImage: `url(${photo1.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              cursor: "pointer",
-            }}
-            onClick={() => router.push("/themesPage/2")}
-          >
-            <p className={style.nameCategory}>18 mois / 2 ans</p>
-          </div>
-          <div
-            className={style.labelCategory}
-            style={{
-              backgroundImage: `url(${photo2.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            onClick={() => router.push("/themesPage/2")}
-          >
-            <p className={style.nameCategory}>2 / 3 ans</p>
-          </div>
-          <div
-            className={style.labelCategory}
-            style={{
-              backgroundImage: `url(${photo3.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            onClick={() => router.push("/themesPage/2")}
-          >
-            <p className={style.nameCategory}>4 / 6 ans</p>
-          </div>
-          <div
-            className={style.labelCategory}
-            style={{
-              backgroundImage: `url(${photo4.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            onClick={() => router.push("/themesPage/2")}
-          >
-            <p className={style.nameCategory}>crèche / école</p>
-          </div>
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className={style.labelCategory}
+              style={{
+                backgroundImage: `url(${category.image})`, // Image dynamique
+                cursor: "pointer",
+              }}
+              onClick={() => router.push(`/themesPage/${category.nom}`)}
+            >
+              {/* <p className={style.nameCategory}>{category.nom}</p> */}
+            </div>
+          ))}
         </div>
       </div>
     </div>

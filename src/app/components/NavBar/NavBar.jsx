@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import style from "./NavBar.module.css";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -10,8 +10,13 @@ import Link from "next/link";
 import Panier from "../PanierPopover/Panier";
 import { useDispatch } from "react-redux";
 import { setIsVisible } from "../../reducers/style.reducer";
+import { useSelector } from "react-redux";
 
 const NavBar = ({ isShowed }) => {
+  const numOfItems = useSelector((state) => state.panier.items.length);
+  const quantityOfItems = useSelector((state) =>
+    state.panier.items.map((item) => item.quantite)
+  ).reduce((total, item) => total + item, 0);
   const dispatch = useDispatch();
 
   const [showPopover, setShowPopover] = useState(false);
@@ -74,7 +79,7 @@ const NavBar = ({ isShowed }) => {
         <Image src={logo} alt="Logo" width={230} height={125} priority={true} />
       </Link>
       <div className={style.shoppingbag}>
-        <span className={style.badge}>0</span>
+        <span className={style.badge}>{quantityOfItems}</span>
         {isSmallScreen ? (
           <Link href="/panierPage">
             <LiaShoppingBagSolid style={{ fontSize: "2.3rem" }} />
@@ -100,7 +105,7 @@ const NavBar = ({ isShowed }) => {
         </Link>
       </div>
       <div className={style.shoppingbagDesktop}>
-        <span className={style.badgeDesktop}>0</span>
+        <span className={style.badgeDesktop}>{quantityOfItems}</span>
         {isSmallScreen ? (
           <Link href="/panierPage">
             <LiaShoppingBagSolid

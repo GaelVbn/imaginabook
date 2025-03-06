@@ -21,7 +21,7 @@
 
 .quantity {
   display: flex;
-  justify-self: center;
+  justify-self: left;
   padding-top: 15%;
 }
 
@@ -142,7 +142,7 @@
 
   .quantity {
     display: flex;
-    justify-self: center;
+    justify-self: left;
   }
 
   .TitleDesc p {

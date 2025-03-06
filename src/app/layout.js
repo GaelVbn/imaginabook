@@ -4,13 +4,14 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import Head from "next/head";
 import style from "./reducers/style.reducer";
+import panier from "./reducers/panier.reducer";
 import { useState } from "react";
 
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
-  reducer: { style },
+  reducer: { style, panier },
 });
 
 export default function RootLayout({ children }) {
