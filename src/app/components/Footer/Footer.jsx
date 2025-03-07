@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import style from "./Footer.module.css";
 import { useSelector } from "react-redux";

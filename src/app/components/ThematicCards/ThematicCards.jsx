@@ -32,10 +32,13 @@ const ThematicCards = ({ themes }) => {
               height={500}
               objectFit="cover"
               layout="responsive"
+              priority
             />
-            <h3 className={style["thematic-card-title"]}>{theme.title}</h3>
+            <h3 className={style["thematic-card-title"]}>{theme.titre}</h3>
             <p className={style["thematic-card-description"]}>
-              {theme.description}
+              {theme.description.length > 100
+                ? theme.description.slice(0, 100) + "... "
+                : theme.description}
             </p>
           </div>
         ))}

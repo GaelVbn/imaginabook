@@ -15,8 +15,8 @@ import { useSelector } from "react-redux";
 const NavBar = ({ isShowed }) => {
   const numOfItems = useSelector((state) => state.panier.items.length);
   const quantityOfItems = useSelector((state) =>
-    state.panier.items.map((item) => item.quantite)
-  ).reduce((total, item) => total + item, 0);
+    state.panier.items.reduce((total, item) => total + item.quantite, 0)
+  );
   const dispatch = useDispatch();
 
   const [showPopover, setShowPopover] = useState(false);

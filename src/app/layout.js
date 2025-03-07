@@ -1,18 +1,39 @@
 "use client";
-import "./globals.css";
-import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
-import Head from "next/head";
-import style from "./reducers/style.reducer";
-import panier from "./reducers/panier.reducer";
-import { useState } from "react";
-
+import "./globals.css"; // Importation des styles globaux
+import Navbar from "../app/components/NavBar/NavBar";
+import Footer from "../app/components/Footer/Footer";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { PersistGate } from "redux-persist/integration/react";
+import { useState } from "react";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import styleReducer from "../app/reducers/style.reducer";
+import panierReducer from "../app/reducers/panier.reducer";
+import storageEngine from "./storageEngine";
+
+// Configuration du store Redux avec persistance
+const persistConfig = {
+  key: "root",
+  storage: storageEngine,
+};
+const rootReducer = combineReducers({
+  style: styleReducer,
+  panier: panierReducer,
+});
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: { style, panier },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ["persist/PERSIST"],
+        ignoredPaths: ["panier", "style"],
+      },
+    }),
 });
+
+const persistor = persistStore(store);
 
 export default function RootLayout({ children }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,47 +43,36 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <Provider store={store}>
-      <html lang="en" className="scroll-smooth">
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
+    <html lang="en" id="html">
+      <body
+        style={{
+          overflowY: isVisible ? "hidden" : "visible",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
+        {isVisible && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              zIndex: 1000,
+            }}
           />
-          <link
-            rel="preload"
-            as="image"
-            href="imaginabook/public/Logo.png"
-          ></link>
-          <title>Imaginabook</title>
-          <meta name="description" content={"Vente de book en ligne"} />
-        </Head>
-        <body
-          style={{
-            overflowY: isVisible ? "hidden" : "visible",
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "100vh",
-          }}
-        >
-          {isVisible && (
-            <div
-              style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                zIndex: 1000,
-              }}
-            />
-          )}
-          <Navbar isShowed={isShowed} />
-          <main style={{ flex: "1 0 auto" }}>{children}</main>
-          <Footer isVisible={isVisible} style={{ flexShrink: 0 }} />
-        </body>
-      </html>
-    </Provider>
+        )}
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <Navbar isShowed={isShowed} />
+            <main style={{ flex: "1 0 auto" }}>{children}</main>
+            <Footer isVisible={isVisible} style={{ flexShrink: 0 }} />
+          </PersistGate>
+        </Provider>
+      </body>
+    </html>
   );
 }

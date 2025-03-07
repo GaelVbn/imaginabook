@@ -30,7 +30,6 @@ const MySwiperComponent = ({ imgPhysique, imgPDF, buttons }) => {
                 alt={"imagesPDF"}
                 width={500} // Remplacez par la largeur réelle de l'image
                 height={500}
-                style={{ width: "100%", height: "auto", borderRadius: "10px" }}
                 priority
               />
             </SwiperSlide>

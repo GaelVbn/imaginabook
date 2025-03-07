@@ -1,9 +1,48 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import style from "./contactPage.module.css";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
+import { fetchUrl } from "../FetchUrl";
 
 const page = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Envoi en cours...");
+
+    try {
+      const response = await fetch(`${fetchUrl}/contact/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Votre email a été envoyé avec succès !");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Erreur lors de l'envoi du message.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("Erreur serveur.");
+    }
+  };
+
   return (
     <div className={style.container}>
       <form className={style.infoDesktop}>
@@ -16,6 +55,8 @@ const page = () => {
               name="name"
               placeholder="Nom"
               required
+              value={formData.name}
+              onChange={handleChange}
             />
           </label>
           <label htmlFor="email">
@@ -25,6 +66,8 @@ const page = () => {
               name="email"
               placeholder="Email"
               required
+              value={formData.email}
+              onChange={handleChange}
             />
           </label>
           <label htmlFor="message">
@@ -34,11 +77,14 @@ const page = () => {
               name="message"
               placeholder="message"
               required
+              value={formData.message}
+              onChange={handleChange}
             />
           </label>
-          <button type="submit" className={style.submit}>
+          <button type="submit" className={style.submit} onClick={handleSubmit}>
             Envoyer
           </button>
+          {status && <p className={style.status}>{status}</p>}
         </div>
       </form>
       <div className={style.social}>

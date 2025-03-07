@@ -59,6 +59,7 @@
   background-color: #e6e6e6;
   justify-content: center;
   border: 0px;
+  cursor: pointer;
 }
 .social {
   display: flex;
@@ -151,6 +152,7 @@
     padding: 10px;
     justify-content: center;
     border: 0px;
+    cursor: pointer;
   }
   .social {
     display: flex;
