@@ -33,7 +33,9 @@ export const panierSlice = createSlice({
     },
     increment: (state, action) => {
       const item = state.items.find(
-        (item) => item.token === action.payload.token
+        (item) =>
+          item.token === action.payload.token &&
+          item.buttons === action.payload.buttons
       );
       if (item) {
         item.quantite++;
@@ -41,7 +43,9 @@ export const panierSlice = createSlice({
     },
     decrement: (state, action) => {
       const item = state.items.find(
-        (item) => item.token === action.payload.token
+        (item) =>
+          item.token === action.payload.token &&
+          item.buttons === action.payload.buttons
       );
       if (item && item.quantite > 1) {
         item.quantite--;

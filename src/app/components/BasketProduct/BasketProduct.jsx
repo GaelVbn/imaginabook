@@ -13,12 +13,12 @@ import {
 const BasketProduct = ({ panier }) => {
   const dispatch = useDispatch();
 
-  const handleIncrement = (token) => {
-    dispatch(increment({ token }));
+  const handleIncrement = (token, buttons) => {
+    dispatch(increment({ token, buttons }));
   };
 
-  const handleDecrement = (token) => {
-    dispatch(decrement({ token }));
+  const handleDecrement = (token, buttons) => {
+    dispatch(decrement({ token, buttons }));
   };
 
   const handleRemove = (token, buttons) => {
@@ -73,7 +73,9 @@ const BasketProduct = ({ panier }) => {
                       border: "none",
                       backgroundColor: "transparent",
                     }}
-                    onClick={() => handleDecrement(product.token)}
+                    onClick={() =>
+                      handleDecrement(product.token, product.buttons)
+                    }
                   >
                     -
                   </button>
@@ -86,7 +88,9 @@ const BasketProduct = ({ panier }) => {
                       border: "none",
                       backgroundColor: "transparent",
                     }}
-                    onClick={() => handleIncrement(product.token)}
+                    onClick={() =>
+                      handleIncrement(product.token, product.buttons)
+                    }
                   >
                     +
                   </button>

@@ -18,7 +18,8 @@ const page = () => {
   const [buttons, setButtons] = useState("Physique");
   const [imgPDF, setImgPDF] = useState([]);
   const [imgPhysique, setImgPhysique] = useState([]);
-  const [quantite, setQuantite] = useState(1);
+  const [quantitePDF, setQuantitePDF] = useState(1);
+  const [quantitePhysique, setQuantitePhysique] = useState(1);
 
   const params = useParams();
   const id = params.id;
@@ -32,12 +33,18 @@ const page = () => {
   };
 
   const handleIncrement = () => {
-    setQuantite(quantite + 1);
+    if (buttons === "Physique") {
+      setQuantitePhysique(quantitePhysique + 1);
+    } else {
+      setQuantitePDF(quantitePDF + 1);
+    }
   };
 
   const handleDecrement = () => {
-    if (quantite > 1) {
-      setQuantite(quantite - 1);
+    if (buttons === "Physique") {
+      setQuantitePhysique(quantitePhysique - 1);
+    } else {
+      setQuantitePDF(quantitePDF - 1);
     }
   };
 
@@ -80,7 +87,7 @@ const page = () => {
         imagesPDF,
         buttons,
         token,
-        quantite: quantite,
+        quantite: buttons === "PDF" ? quantitePDF : quantitePhysique,
       })
     );
   };
@@ -159,7 +166,7 @@ const page = () => {
                     fontSize: "1rem",
                   }}
                 >
-                  {buttons === "PDF" ? 1 : quantite}
+                  {buttons === "PDF" ? quantitePDF : quantitePhysique}
                 </button>
                 <button
                   style={{
