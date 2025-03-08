@@ -1,10 +1,42 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import style from "./Panier.module.css";
 import BasketProduct from "../BasketProduct/BasketProduct";
 import { useSelector } from "react-redux";
 
 const Panier = () => {
   const panier = useSelector((state) => state.panier.items);
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+
+    const products = panier.map((item) => ({
+      name: item.titre + " - " + item.buttons,
+      price: item.buttons === "PDF" ? item.prix_pdf : item.prix_physique,
+      quantity: item.quantite,
+      image: item.buttons === "PDF" ? item.imagesPDF[0] : item.imagePhysique[0],
+      token: item.token,
+      format: item.buttons,
+    }));
+    const response = await fetch("/api/checkout_sessions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products }),
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url; // Redirige l'utilisateur vers Stripe
+    } else {
+      alert("Erreur lors de la création de la session");
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className={style.container}>
@@ -59,6 +91,7 @@ const Panier = () => {
             calculés à l’étape du paiement.
           </p>
           <button
+            onClick={handleCheckout}
             className={style.btn}
             style={{
               backgroundColor: "black",
@@ -69,7 +102,7 @@ const Panier = () => {
               cursor: "pointer",
             }}
           >
-            Procéder au paiement
+            {loading ? "Chargement..." : "Payer maintenant"}
           </button>
         </div>
       </div>
