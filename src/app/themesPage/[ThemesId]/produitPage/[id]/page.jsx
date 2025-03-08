@@ -21,6 +21,8 @@ const page = () => {
   const [quantitePDF, setQuantitePDF] = useState(1);
   const [quantitePhysique, setQuantitePhysique] = useState(1);
 
+  const [loading, setLoading] = useState(false);
+
   const params = useParams();
   const id = params.id;
 
@@ -90,6 +92,45 @@ const page = () => {
         quantite: buttons === "PDF" ? quantitePDF : quantitePhysique,
       })
     );
+  };
+
+  const handlePaiement = async () => {
+    setLoading(true);
+
+    const name = produit[0]?.titre;
+    const price =
+      buttons === "PDF" ? produit[0]?.prix_pdf : produit[0]?.prix_physique;
+    const quantity = buttons === "PDF" ? quantitePDF : quantitePhysique;
+    const image = buttons === "PDF" ? imgPDF[0] : imgPhysique[0];
+    const token = produit[0]?.token;
+    const format = buttons;
+    const products = [
+      {
+        name,
+        price,
+        quantity,
+        image,
+        token,
+        format,
+      },
+    ];
+
+    const response = await fetch("/api/checkout_sessions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products }),
+    });
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url; // Redirige l'utilisateur vers Stripe
+    } else {
+      alert("Erreur lors de la création de la session");
+    }
+
+    setLoading(false);
   };
   return (
     <div className={style.mainContainer}>
@@ -198,6 +239,7 @@ const page = () => {
                 Ajouter au panier
               </button>
               <button
+                onClick={handlePaiement}
                 className={style.addToCartBtn}
                 style={{
                   backgroundColor: "#E76F51",
