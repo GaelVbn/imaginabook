@@ -44,11 +44,12 @@ const Panier = () => {
         <span style={{ fontSize: "1rem", fontWeight: "bold" }}>
           Votre panier
         </span>
+        <div className={style.headProduct}>
+          <span style={{ fontSize: "0.8rem" }}>PRODUIT</span>
+          <span style={{ fontSize: "0.8rem" }}>TOTAL</span>
+        </div>
       </div>
-      <div className={style.headProduct}>
-        <span style={{ fontSize: "0.8rem" }}>PRODUIT</span>
-        <span style={{ fontSize: "0.8rem" }}>TOTAL</span>
-      </div>
+
       <div
         style={{
           display: "flex",
