@@ -53,7 +53,7 @@ const page = () => {
   useEffect(() => {
     const fetchProduit = async () => {
       try {
-        const response = await fetch(`${fetchUrl}/produits`, {
+        const response = await fetch(`${fetchUrl}/produit`, {
           headers: {
             Authorization: `Bearer ${id}`,
           },
