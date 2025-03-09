@@ -115,16 +115,13 @@ const page = () => {
       },
     ];
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/api/checkout_sessions`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ products }),
-      }
-    );
+    const response = await fetch("/api/checkout_sessions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products }),
+    });
     const data = await response.json();
 
     if (data.url) {
