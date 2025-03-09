@@ -11,6 +11,7 @@ import {
 } from "../../reducers/panier.reducer";
 
 const BasketProduct = ({ panier }) => {
+  console.log(panier);
   const dispatch = useDispatch();
 
   const handleIncrement = (token, buttons) => {
@@ -34,7 +35,7 @@ const BasketProduct = ({ panier }) => {
           <div key={index} className={style.container}>
             <div className={style.photoCard}>
               <Image
-                src={product.imagePhysique[0]}
+                src={product.imagePhysique?.[0]}
                 width={100}
                 height={130}
                 alt={product.titre}

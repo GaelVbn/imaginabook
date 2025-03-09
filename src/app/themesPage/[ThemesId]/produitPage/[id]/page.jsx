@@ -22,7 +22,7 @@ const page = () => {
   const [quantitePhysique, setQuantitePhysique] = useState(1);
 
   const [loading, setLoading] = useState(false);
-
+  console.log("produit", produit?.imagePhysique?.[0]);
   const params = useParams();
   const id = params.id;
 
@@ -63,8 +63,8 @@ const page = () => {
         }
         const data = await response.json();
         setProduit(data);
-        setImgPDF(data[0]?.imagesPDF);
-        setImgPhysique(data[0]?.imagePhysique);
+        setImgPDF(data?.imagesPDF);
+        setImgPhysique(data?.imagePhysique);
       } catch (err) {
         console.error("Erreur de récupération du produit :", err);
       }
@@ -73,12 +73,12 @@ const page = () => {
     fetchProduit();
   }, [id]);
   const handleAddToCart = () => {
-    const titre = produit[0]?.titre;
-    const prix_pdf = produit[0]?.prix_pdf;
-    const prix_physique = produit[0]?.prix_physique;
-    const imagePhysique = produit[0]?.imagePhysique;
-    const imagesPDF = produit[0]?.imagesPDF;
-    const token = produit[0]?.token;
+    const titre = produit?.titre;
+    const prix_pdf = produit?.prix_pdf;
+    const prix_physique = produit?.prix_physique;
+    const imagePhysique = produit?.imagePhysique;
+    const imagesPDF = produit?.imagesPDF;
+    const token = produit?.token;
 
     dispatch(
       addItem({
@@ -97,12 +97,12 @@ const page = () => {
   const handlePaiement = async () => {
     setLoading(true);
 
-    const name = produit[0]?.titre;
+    const name = produit?.titre;
     const price =
-      buttons === "PDF" ? produit[0]?.prix_pdf : produit[0]?.prix_physique;
+      buttons === "PDF" ? produit?.prix_pdf : produit?.prix_physique;
     const quantity = buttons === "PDF" ? quantitePDF : quantitePhysique;
-    const image = buttons === "PDF" ? imgPDF[0] : imgPhysique[0];
-    const token = produit[0]?.token;
+    const image = buttons === "PDF" ? imgPDF : imgPhysique;
+    const token = produit?.token;
     const format = buttons;
     const products = [
       {
@@ -144,8 +144,8 @@ const page = () => {
         </div>
         <div className={style.description}>
           <div className={style.TitleDesc}>
-            <h1 className={style.title}>{produit[0]?.titre}</h1>
-            <p>{produit[0]?.description}</p>
+            <h1 className={style.title}>{produit?.titre}</h1>
+            <p>{produit?.description}</p>
           </div>
 
           <div className={style.btnFormat}>
@@ -168,8 +168,8 @@ const page = () => {
           <div className={style.priceContainer}>
             <span className={style.price}>
               {buttons === "Physique"
-                ? produit[0]?.prix_physique
-                : produit[0]?.prix_pdf}
+                ? produit?.prix_physique
+                : produit?.prix_pdf}
               €
             </span>
             <div>
