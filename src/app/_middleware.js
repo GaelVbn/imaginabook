@@ -14,7 +14,8 @@ export function middleware(req) {
 
   // Gérer la requête OPTIONS pour le pré-vol
   if (req.method === "OPTIONS") {
-    return res.status(200).end();
+    res.headers.set("Access-Control-Max-Age", "86400");
+    return res.status(204).end();
   }
 
   return res;
