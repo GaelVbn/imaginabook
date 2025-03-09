@@ -22,7 +22,7 @@ const page = () => {
   const [quantitePhysique, setQuantitePhysique] = useState(1);
 
   const [loading, setLoading] = useState(false);
-  console.log("produit", produit?.imagePhysique?.[0]);
+
   const params = useParams();
   const id = params.id;
 
@@ -101,7 +101,7 @@ const page = () => {
     const price =
       buttons === "PDF" ? produit?.prix_pdf : produit?.prix_physique;
     const quantity = buttons === "PDF" ? quantitePDF : quantitePhysique;
-    const image = buttons === "PDF" ? imgPDF : imgPhysique;
+    const image = buttons === "PDF" ? imgPDF[0] : imgPhysique[0];
     const token = produit?.token;
     const format = buttons;
     const products = [
@@ -123,6 +123,7 @@ const page = () => {
       body: JSON.stringify({ products }),
     });
     const data = await response.json();
+    console.log("Réponse du serveur :", data);
 
     if (data.url) {
       window.location.href = data.url; // Redirige l'utilisateur vers Stripe
