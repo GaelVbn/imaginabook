@@ -50,14 +50,15 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Imaginabook</title>
         <meta
-          name="Site e-commerce de vente de livres pour enfants"
-          content="Achetez en ligne des livres pour enfants sur Imaginabook, votre boutique en ligne de confiance."
+          name="description"
+          content="Découvrez notre sélection unique de livres interactifs pour enfants, disponibles en format physique ou PDF. Nos livres ne sont pas de simples lectures, mais des expériences ludiques et éducatives qui permettent aux enfants de jouer avec les images et de développer leur créativité. Créé à partir d'une communauté Instagram passionnée, notre site propose des livres de haute qualité, parfaits pour les petits aventuriers. Profitez de la livraison rapide et du paiement sécurisé. Explorez notre collection dès aujourd'hui !"
         />
+
         <meta
           name="keywords"
           content="e-commerce, boutique en ligne, produits, enfants, kids, instagram, craft, livres, lecture, éducation, contes, développement, imagination"
         />
-        <meta name="Gael" content="Vanbeveren" />
+        <meta name="author" content="Gael Vanbeveren" />
         <link
           rel="icon"
           href="https://res.cloudinary.com/dlnktdljy/image/upload/t_square%20logo/v1741615527/Logo_u0gpcy.png"
