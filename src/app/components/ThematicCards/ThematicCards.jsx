@@ -12,6 +12,20 @@ const ThematicCards = ({ themes }) => {
   // Récupérer le paramètre 'ThemesId' de l'URL
   const ThemesId = params.ThemesId;
 
+  if (themes.length === 0) {
+    return (
+      <div className={style["thematic-container"]}>
+        <h2 className={style["thematic-title"]}>Les thématiques</h2>
+        <p
+          className={style["thematic-card-description"]}
+          style={{ fontSize: "18px" }}
+        >
+          En cours de création...
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={style["thematic-container"]}>
       <h2 className={style["thematic-title"]}>Les thématiques</h2>
