@@ -97,7 +97,7 @@ const page = () => {
           <CiLinkedin />
         </a>
         <a
-          href="https://www.instagram.com/etudesxmaman"
+          href="https://www.instagram.com/imagi_mom"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "inherit" }}
