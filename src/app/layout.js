@@ -45,6 +45,26 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" id="html">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Imaginabook</title>
+        <meta
+          name="Site e-commerce de vente de livres pour enfants"
+          content="Achetez en ligne des livres pour enfants sur Imaginabook, votre boutique en ligne de confiance."
+        />
+        <meta
+          name="keywords"
+          content="e-commerce, boutique en ligne, produits, enfants, kids, instagram, craft, livres, lecture, éducation, contes, développement, imagination"
+        />
+        <meta name="Gael" content="Vanbeveren" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dlnktdljy/image/upload/t_square%20logo/v1741615527/Logo_u0gpcy.png"
+          type="image/png"
+          sizes="900x900"
+        />
+      </head>
       <body
         style={{
           overflowY: isVisible ? "hidden" : "visible",
