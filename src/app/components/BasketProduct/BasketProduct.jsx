@@ -106,6 +106,7 @@ const BasketProduct = ({ panier }) => {
                     fontSize: "1.2rem",
                     cursor: "pointer",
                   }}
+                  className={style.trash}
                   onClick={() => handleRemove(product.token, product.buttons)}
                 />
               </div>

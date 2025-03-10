@@ -152,7 +152,12 @@ const page = () => {
           <div className={style.btnFormat}>
             <button
               onClick={handlePDFClick}
-              style={{ backgroundColor: buttons === "PDF" ? "orange" : "" }}
+              style={{
+                backgroundColor: buttons === "PDF" ? "orange" : "",
+                boxShadow:
+                  buttons === "PDF" ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "",
+                border: buttons === "Physique" ? "0.5px solid #343434" : "",
+              }}
             >
               PDF
             </button>
@@ -160,6 +165,11 @@ const page = () => {
               onClick={handlePhysiqueClick}
               style={{
                 backgroundColor: buttons === "Physique" ? "orange" : "",
+                boxShadow:
+                  buttons === "Physique"
+                    ? "0px 4px 4px rgba(0, 0, 0, 0.25)"
+                    : "",
+                border: buttons === "PDF" ? "0.5px solid #343434" : "",
               }}
             >
               Physique

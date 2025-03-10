@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const initialState = {
   items: [],
@@ -17,6 +18,11 @@ export const panierSlice = createSlice({
       );
       if (!exist) {
         state.items.push(action.payload);
+        toast.success("Ajouté au panier!");
+      } else {
+        toast("Le produit est déjà dans le panier.", {
+          icon: "👌",
+        });
       }
     },
     removeItem: (state, action) => {

@@ -91,12 +91,11 @@
   padding: 0.8rem 2rem;
   border-radius: 10px;
   background-color: transparent;
-  border: 0.5px solid #343434;
+  border: 0px solid #343434;
   cursor: pointer;
 }
 
 .btnFormat button:hover {
-  background-color: orange;
   cursor: pointer;
 }
 
@@ -195,12 +194,10 @@
     padding: 0.8rem 2rem;
     border-radius: 10px;
     background-color: transparent;
-    border: 0.5px solid #343434;
     cursor: pointer;
   }
 
   .btnFormat button:hover {
-    background-color: orange;
     cursor: pointer;
   }
 

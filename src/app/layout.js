@@ -10,6 +10,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import styleReducer from "../app/reducers/style.reducer";
 import panierReducer from "../app/reducers/panier.reducer";
 import storageEngine from "./storageEngine";
+import { Toaster } from "react-hot-toast";
 
 // Configuration du store Redux avec persistance
 const persistConfig = {
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
         )}
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
+            <Toaster />
             <Navbar isShowed={isShowed} />
             <main style={{ flex: "1 0 auto" }}>{children}</main>
             <Footer isVisible={isVisible} style={{ flexShrink: 0 }} />

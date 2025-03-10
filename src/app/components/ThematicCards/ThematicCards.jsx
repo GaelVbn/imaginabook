@@ -30,7 +30,6 @@ const ThematicCards = ({ themes }) => {
               alt={theme.titre}
               width={500}
               height={500}
-              objectFit="cover"
               layout="responsive"
               priority
             />

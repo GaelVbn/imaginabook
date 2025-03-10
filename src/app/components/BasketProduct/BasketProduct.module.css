@@ -46,3 +46,8 @@
   padding: 4px;
   margin-top: 5px;
 }
+
+.trash:hover {
+  cursor: pointer;
+  color: #dc6b5c;
+}

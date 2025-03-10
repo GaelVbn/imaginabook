@@ -14,28 +14,30 @@
 
 .thematic-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 50px;
 }
 
 .thematic-card {
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  width: 70%;
+  padding: 10px; /* Réduit le padding */
+  width: 70%; /* Réduit la largeur */
   text-align: center;
   border: 1px solid #ddd;
   place-self: center;
   cursor: pointer;
 }
+
 .thematic-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
 }
+
 .thematic-image {
-  width: 120px;
-  height: 120px;
+  width: 100px; /* Réduit la largeur de l'image */
+  height: 100px; /* Réduit la hauteur de l'image */
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -43,13 +45,13 @@
 }
 
 .thematic-card-title {
-  font-size: 18px;
+  font-size: 16px; /* Réduit la taille de la police */
   font-weight: 600;
   margin-bottom: 5px;
 }
 
 .thematic-card-description {
-  font-size: 14px;
+  font-size: 12px; /* Réduit la taille de la police */
   color: #666;
 }
 
@@ -84,30 +86,38 @@
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 250px;
+    padding: 10px; /* Réduit le padding */
+    width: 200px; /* Réduit la largeur */
+    height: auto;
     text-align: center;
     border: 1px solid #ddd;
     place-self: none;
   }
 
   .thematic-image {
-    width: 120px;
-    height: 120px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     margin: 0 auto 10px auto;
+    object-fit: cover;
   }
 
   .thematic-card-title {
-    font-size: 18px;
+    font-size: 16px; /* Réduit la taille de la police */
     font-weight: 600;
     margin-bottom: 5px;
   }
 
   .thematic-card-description {
-    font-size: 14px;
+    font-size: 12px; /* Réduit la taille de la police */
     color: #666;
+  }
+}
+
+@media (min-width: 1200px) {
+  .thematic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 80px;
   }
 }
