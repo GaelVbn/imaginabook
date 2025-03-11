@@ -1,6 +1,7 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./NavBar.module.css";
+import { usePathname } from "next/navigation";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { LiaShoppingBagSolid } from "react-icons/lia";
@@ -11,6 +12,7 @@ import Panier from "../PanierPopover/Panier";
 import { useDispatch } from "react-redux";
 import { setIsVisible } from "../../reducers/style.reducer";
 import { useSelector } from "react-redux";
+import MenuDropDown from "../DropDownMenu/DropDownMenu";
 
 const NavBar = ({ isShowed }) => {
   const numOfItems = useSelector((state) => state.panier.items.length);
@@ -18,10 +20,13 @@ const NavBar = ({ isShowed }) => {
     state.panier.items.reduce((total, item) => total + item.quantite, 0)
   );
   const dispatch = useDispatch();
+  const pathname = usePathname();
 
   const [showPopover, setShowPopover] = useState(false);
   const [showPopoverPanier, setShowPopoverPanier] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const isActiveQuisuisJe = pathname.includes("/quisuisjePage");
+  const isActiveContact = pathname.includes("/contactPage");
 
   const togglePopover = () => {
     setShowPopover((prev) => !prev);
@@ -98,11 +103,27 @@ const NavBar = ({ isShowed }) => {
       </Link>
       <div className={style.onglets}>
         <Link href="/quisuisjePage">
-          <button className={style.button}>Notre Histoire</button>
+          <button
+            className={style.button}
+            style={{
+              borderBottom: isActiveQuisuisJe ? "3px solid orange" : "",
+            }}
+          >
+            Notre Histoire
+          </button>
         </Link>
         <Link href="/contactPage">
-          <button className={style.button}>Contactez-nous</button>
+          <button
+            className={style.button}
+            style={{
+              borderBottom: isActiveContact ? "3px solid orange" : "",
+            }}
+          >
+            Contactez-nous
+          </button>
         </Link>
+
+        <MenuDropDown />
       </div>
       <div className={style.shoppingbagDesktop}>
         <span className={style.badgeDesktop}>{quantityOfItems}</span>

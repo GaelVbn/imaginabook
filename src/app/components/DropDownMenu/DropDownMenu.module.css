@@ -1,0 +1,25 @@
+.dropdown-menu {
+  position: absolute;
+  top: 85%; /* Bien positionné sous le bouton */
+  left: 30;
+  background: white;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #d0cece;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  width: max-content; /* Ajuste la taille selon le contenu */
+  min-width: 200px; /* Largeur minimale */
+  max-width: 90vw; /* Pour éviter qu'il ne dépasse l'écran */
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 600px) {
+  .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%); /* Centre le menu */
+    max-width: 80vw; /* Ne dépasse pas l’écran */
+  }
+}

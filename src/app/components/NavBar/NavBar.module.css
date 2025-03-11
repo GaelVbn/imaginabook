@@ -101,7 +101,8 @@
 
   .onglets {
     display: flex;
-    width: 260px;
+    width: 30%;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -111,6 +112,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    padding: 10px;
   }
 
   .shoppingbagDesktop {
@@ -136,5 +138,11 @@
     font-size: 0.8rem;
     font-weight: bold;
     position: absolute;
+  }
+}
+
+@media (min-width: 1920px) {
+  .onglets {
+    width: 25%;
   }
 }
