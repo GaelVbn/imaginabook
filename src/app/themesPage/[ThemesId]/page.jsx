@@ -19,54 +19,23 @@ const Page = () => {
 
   useEffect(() => {
     const fetchThemes = async () => {
-      const cache = await caches.open("my-cache");
-      const cachedResponse = await cache.match(
-        `${fetchUrl}/produits/categorie/${ThemesId}`
-      );
-
-      if (cachedResponse) {
-        const data = await cachedResponse.json();
-        setThemes(data);
-      } else {
-        try {
-          const response = await fetch(
-            `${fetchUrl}/produits/categorie/${ThemesId}`
-          );
-
-          if (!response.ok) {
-            throw new Error(
-              `Erreur: ${response.status} ${response.statusText}`
-            );
-          }
-
-          const data = await response.json();
-          setThemes(data);
-
-          // Store the response in the cache with a 15-minute expiration
-          cache.put(
-            `${fetchUrl}/produits/categorie/${ThemesId}`,
-            new Response(JSON.stringify(data), {
-              headers: {
-                "Content-Type": "application/json",
-                "Cache-Control": "max-age=900",
-              },
-            })
-          );
-        } catch (err) {
-          console.error("Erreur de récupération des thèmes :", err);
-          setError(err.message);
+      try {
+        const response = await fetch(
+          `${fetchUrl}/produits/categorie/${ThemesId}`
+        );
+        if (!response.ok) {
+          throw new Error(`Erreur: ${response.status} ${response.statusText}`);
         }
+        const data = await response.json();
+        setThemes(data);
+      } catch (err) {
+        console.error("Erreur de récupération des thèmes :", err);
+        setError(err.message);
       }
     };
 
     fetchThemes();
-
-    // Refresh the cache every 15 minutes
-    const interval = setInterval(fetchThemes, 900000); // 15 minutes in milliseconds
-
-    return () => clearInterval(interval);
-  }, [fetchUrl, ThemesId]);
-
+  }, [ThemesId]);
   return (
     <div>
       {/* Passer le paramètre récupéré au composant ThematicCards */}
