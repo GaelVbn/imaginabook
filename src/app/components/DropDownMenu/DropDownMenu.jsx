@@ -46,6 +46,7 @@ const MenuDropDown = () => {
           fontSize: "0.9rem",
           padding: "10px",
           borderBottom: isOpen ? "3px solid orange" : "none",
+          cursor: "pointer",
         }}
         onClick={toggleMenu}
       >
