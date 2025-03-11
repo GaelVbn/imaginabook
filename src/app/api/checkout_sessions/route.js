@@ -15,10 +15,21 @@ export async function POST(req) {
       0
     );
 
-    if (physicalQuantity > 0) {
-      shippingCost = 430; // 4,30€ de base jusqu'à 3 articles
-      if (physicalQuantity > 3) {
-        shippingCost += (physicalQuantity - 3) * 10; // +0,10€ par article supplémentaire
+    // Calcul du total du panier
+    const totalCartValue = physicalProducts.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
+
+    // Si le total du panier est supérieur ou égal à 50€, les frais sont gratuits
+    if (totalCartValue >= 50) {
+      shippingCost = 0;
+    } else {
+      if (physicalQuantity > 0) {
+        shippingCost = 430; // 4,30€ de base jusqu'à 3 articles
+        if (physicalQuantity > 3) {
+          shippingCost += (physicalQuantity - 3) * 10; // +0,10€ par article supplémentaire
+        }
       }
     }
 
