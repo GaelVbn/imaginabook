@@ -52,26 +52,58 @@ const page = () => {
 
   useEffect(() => {
     const fetchProduit = async () => {
-      try {
-        const response = await fetch(`${fetchUrl}/produit`, {
-          headers: {
-            Authorization: `Bearer ${id}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error(`Erreur: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json();
+      const cache = await caches.open("my-cache");
+      const cachedResponse = await cache.match(`${fetchUrl}/produit`);
+
+      if (cachedResponse) {
+        const data = await cachedResponse.json();
         setProduit(data);
         setImgPDF(data?.imagesPDF);
         setImgPhysique(data?.imagePhysique);
-      } catch (err) {
-        console.error("Erreur de récupération du produit :", err);
+      } else {
+        try {
+          const response = await fetch(`${fetchUrl}/produit`, {
+            headers: {
+              Authorization: `Bearer ${id}`,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              `Erreur: ${response.status} ${response.statusText}`
+            );
+          }
+
+          const data = await response.json();
+          setProduit(data);
+          setImgPDF(data?.imagesPDF);
+          setImgPhysique(data?.imagePhysique);
+
+          // Store the response in the cache with a 15-minute expiration
+          cache.put(
+            `${fetchUrl}/produit`,
+            new Response(JSON.stringify(data), {
+              headers: {
+                "Content-Type": "application/json",
+                "Cache-Control": "max-age=900",
+              },
+            })
+          );
+        } catch (err) {
+          console.error("Erreur de récupération du produit :", err);
+          setError(err.message);
+        }
       }
     };
 
     fetchProduit();
-  }, [id]);
+
+    // Refresh the cache every 15 minutes
+    const interval = setInterval(fetchProduit, 900000); // 15 minutes in milliseconds
+
+    return () => clearInterval(interval);
+  }, [fetchUrl, id]);
+
   const handleAddToCart = () => {
     const titre = produit?.titre;
     const prix_pdf = produit?.prix_pdf;
