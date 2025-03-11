@@ -65,6 +65,16 @@ export default function RootLayout({ children }) {
           type="image/png"
           sizes="900x900"
         />
+        {/* Données structurées pour le logo de référencement */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Imaginabook",
+            url: "https://www.imaginabook.com",
+            logo: "https://res.cloudinary.com/dlnktdljy/image/upload/t_square%20logo/v1741615527/Logo_u0gpcy.png",
+          })}
+        </script>
       </head>
       <body
         style={{
