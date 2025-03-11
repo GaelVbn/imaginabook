@@ -137,134 +137,143 @@ const page = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.container}>
-        <div className={style.slide}>
-          <Slideshow
-            imgPhysique={imgPhysique}
-            imgPDF={imgPDF}
-            buttons={buttons}
-          />
-        </div>
-        <div className={style.description}>
-          <div className={style.TitleDesc}>
-            <h1 className={style.title}>{produit?.titre}</h1>
-            <p>{produit?.description}</p>
-          </div>
+        {/* Vérification des données avant d'afficher la page */}
+        {!imgPhysique || !imgPDF ? (
+          <div>Chargement...</div> // Message de chargement pendant que les données sont récupérées
+        ) : (
+          <>
+            <div className={style.slide}>
+              <Slideshow
+                imgPhysique={imgPhysique}
+                imgPDF={imgPDF}
+                buttons={buttons}
+              />
+            </div>
+            <div className={style.description}>
+              <div className={style.TitleDesc}>
+                <h1 className={style.title}>{produit?.titre}</h1>
+                <p>{produit?.description}</p>
+              </div>
 
-          <div className={style.btnFormat}>
-            <button
-              onClick={handlePDFClick}
-              style={{
-                backgroundColor: buttons === "PDF" ? "orange" : "",
-                boxShadow:
-                  buttons === "PDF" ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "",
-                border: buttons === "Physique" ? "0.5px solid #343434" : "",
-              }}
-            >
-              PDF
-            </button>
-            <button
-              onClick={handlePhysiqueClick}
-              style={{
-                backgroundColor: buttons === "Physique" ? "orange" : "",
-                boxShadow:
-                  buttons === "Physique"
-                    ? "0px 4px 4px rgba(0, 0, 0, 0.25)"
-                    : "",
-                border: buttons === "PDF" ? "0.5px solid #343434" : "",
-              }}
-            >
-              Physique
-            </button>
-          </div>
-
-          <div className={style.priceContainer}>
-            <span className={style.price}>
-              {buttons === "Physique"
-                ? produit?.prix_physique
-                : produit?.prix_pdf}
-              €
-            </span>
-            <div>
-              <span
-                className={style.quantity}
-                style={{ opacity: buttons === "PDF" ? 0.5 : 1 }}
-              >
-                Quantité :
-              </span>
-              <div
-                className={style.quantityBtn}
-                style={{
-                  pointerEvents: buttons === "PDF" ? "none" : "auto",
-                  opacity: buttons === "PDF" ? 0.5 : 1,
-                }}
-              >
+              <div className={style.btnFormat}>
                 <button
+                  onClick={handlePDFClick}
                   style={{
-                    border: "none",
-                    padding: "0.5rem",
-                    fontSize: "1.5rem",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
+                    backgroundColor: buttons === "PDF" ? "orange" : "",
+                    boxShadow:
+                      buttons === "PDF"
+                        ? "0px 4px 4px rgba(0, 0, 0, 0.25)"
+                        : "",
+                    border: buttons === "Physique" ? "0.5px solid #343434" : "",
                   }}
-                  onClick={handleDecrement}
                 >
-                  -
+                  PDF
                 </button>
                 <button
+                  onClick={handlePhysiqueClick}
                   style={{
-                    border: "none",
-                    padding: "0.5rem 1.5rem",
-                    backgroundColor: "transparent",
-                    disabled: true,
-                    fontSize: "1rem",
+                    backgroundColor: buttons === "Physique" ? "orange" : "",
+                    boxShadow:
+                      buttons === "Physique"
+                        ? "0px 4px 4px rgba(0, 0, 0, 0.25)"
+                        : "",
+                    border: buttons === "PDF" ? "0.5px solid #343434" : "",
                   }}
                 >
-                  {buttons === "PDF" ? quantitePDF : quantitePhysique}
-                </button>
-                <button
-                  style={{
-                    border: "none",
-                    padding: "0.5rem",
-                    fontSize: "1.5rem",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
-                  }}
-                  onClick={handleIncrement}
-                >
-                  +
+                  Physique
                 </button>
               </div>
+
+              <div className={style.priceContainer}>
+                <span className={style.price}>
+                  {buttons === "Physique"
+                    ? produit?.prix_physique
+                    : produit?.prix_pdf}
+                  €
+                </span>
+                <div>
+                  <span
+                    className={style.quantity}
+                    style={{ opacity: buttons === "PDF" ? 0.5 : 1 }}
+                  >
+                    Quantité :
+                  </span>
+                  <div
+                    className={style.quantityBtn}
+                    style={{
+                      pointerEvents: buttons === "PDF" ? "none" : "auto",
+                      opacity: buttons === "PDF" ? 0.5 : 1,
+                    }}
+                  >
+                    <button
+                      style={{
+                        border: "none",
+                        padding: "0.5rem",
+                        fontSize: "1.5rem",
+                        backgroundColor: "transparent",
+                        cursor: "pointer",
+                      }}
+                      onClick={handleDecrement}
+                    >
+                      -
+                    </button>
+                    <button
+                      style={{
+                        border: "none",
+                        padding: "0.5rem 1.5rem",
+                        backgroundColor: "transparent",
+                        disabled: true,
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {buttons === "PDF" ? quantitePDF : quantitePhysique}
+                    </button>
+                    <button
+                      style={{
+                        border: "none",
+                        padding: "0.5rem",
+                        fontSize: "1.5rem",
+                        backgroundColor: "transparent",
+                        cursor: "pointer",
+                      }}
+                      onClick={handleIncrement}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className={style.actionBtn}>
+                  <button
+                    className={style.addToCartBtn}
+                    style={{
+                      backgroundColor: "#2A628F",
+                      cursor: "pointer",
+                      border: "none",
+                      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    }}
+                    onClick={() => {
+                      handleAddToCart();
+                    }}
+                  >
+                    Ajouter au panier
+                  </button>
+                  <button
+                    onClick={handlePaiement}
+                    className={style.addToCartBtn}
+                    style={{
+                      backgroundColor: "#E76F51",
+                      cursor: "pointer",
+                      border: "none",
+                      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    Acheter
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className={style.actionBtn}>
-              <button
-                className={style.addToCartBtn}
-                style={{
-                  backgroundColor: "#2A628F",
-                  cursor: "pointer",
-                  border: "none",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                }}
-                onClick={() => {
-                  handleAddToCart();
-                }}
-              >
-                Ajouter au panier
-              </button>
-              <button
-                onClick={handlePaiement}
-                className={style.addToCartBtn}
-                style={{
-                  backgroundColor: "#E76F51",
-                  cursor: "pointer",
-                  border: "none",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                }}
-              >
-                Acheter
-              </button>
-            </div>
-          </div>
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
