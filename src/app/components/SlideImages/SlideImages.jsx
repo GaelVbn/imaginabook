@@ -23,20 +23,20 @@ const MySwiperComponent = ({ imgPhysique, imgPDF, buttons }) => {
     >
       {buttons === "PDF"
         ? imgPDF.map((image, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={image}>
               <Image
                 className={style.image}
                 src={image}
                 alt={"imagesPDF"}
                 width={500} // Remplacez par la largeur réelle de l'image
                 height={500}
-                priority
+                loading="lazy"
               />
             </SwiperSlide>
           ))
         : buttons === "Physique"
         ? imgPhysique.map((image, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={image}>
               <Image
                 className={style.image}
                 src={image}
@@ -44,7 +44,7 @@ const MySwiperComponent = ({ imgPhysique, imgPDF, buttons }) => {
                 width={500} // Remplacez par la largeur réelle de l'image
                 height={500}
                 style={{ width: "100%", height: "auto", borderRadius: "10px" }}
-                priority
+                loading="lazy"
               />
             </SwiperSlide>
           ))
