@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
             logo: "https://res.cloudinary.com/dlnktdljy/image/upload/t_square%20logo/v1741615527/Logo_u0gpcy.png",
           })}
         </script>
+        <meta name="robots" content="index, follow" />
       </head>
       <body
         style={{
