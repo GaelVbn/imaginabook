@@ -27,7 +27,6 @@ export async function POST(req) {
     const buf = await getBufferFromStream(req);
 
     // Log pour vérifier le contenu du corps de la requête
-    console.log("Corps brut de la requête Stripe:", buf.toString());
 
     event = stripe.webhooks.constructEvent(buf, sig, endpointSecret); // Vérifier la signature
   } catch (err) {
@@ -49,14 +48,8 @@ export async function POST(req) {
     // Convertir la chaîne de caractères en tableau
     const tokens = tokensString.split(", ");
 
-    console.log("token", tokens);
-    console.log("format", format);
-
-    console.log("✅ Paiement réussi ! Envoi de l'email à :", email);
-
     // ➜ Appel au backend Express pour envoyer l'email
     try {
-      console.log("🚀 Envoi de la requête POST pour l'email au backend...");
       await fetch(`${process.env.BACKEND_URL}/api/email/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

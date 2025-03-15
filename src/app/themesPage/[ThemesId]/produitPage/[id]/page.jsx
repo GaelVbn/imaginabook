@@ -124,7 +124,6 @@ const page = () => {
       body: JSON.stringify({ products }),
     });
     const data = await response.json();
-    console.log("Réponse du serveur :", data);
 
     if (data.url) {
       window.location.href = data.url; // Redirige l'utilisateur vers Stripe

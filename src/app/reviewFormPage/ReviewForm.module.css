@@ -1,0 +1,96 @@
+/* ReviewForm.module.css */
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 10%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 30%;
+}
+
+.reviewTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.starContainer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.starIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  color: #ccc;
+}
+
+.starIcon.starFilled {
+  color: gold;
+  fill: gold;
+}
+
+.reviewTextarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: none;
+}
+
+.reviewButton {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reviewButton:hover {
+  background: #0056b3;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.reviewName {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+  .reviewContainer {
+    width: 30%;
+    margin-top: 10%;
+    padding: 5%;
+  }
+}

@@ -78,6 +78,7 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow" />
       </head>
       <body
+        suppressHydrationWarning={true}
         style={{
           overflowY: isVisible ? "hidden" : "visible",
           display: "flex",

@@ -10,7 +10,6 @@ const MenuDropDown = () => {
   };
 
   const handleClick = (category) => {
-    console.log("Catégorie :", category);
     setIsOpen(false);
     window.location.href = `/themesPage/${category}`;
   };

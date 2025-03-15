@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const Panier = ({ onClose }) => {
   const panier = useSelector((state) => state.panier.items);
-  console.log(panier);
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
