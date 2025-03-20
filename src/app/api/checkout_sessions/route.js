@@ -41,6 +41,10 @@ export async function POST(req) {
         allowed_countries: ["FR", "BE"], // Ajoute les pays où tu livres
       },
 
+      phone_number_collection: {
+        enabled: true,
+      },
+
       // ➜ Ajoute dynamiquement les frais de livraison uniquement si des articles physiques sont présents
       shipping_options: [
         {
