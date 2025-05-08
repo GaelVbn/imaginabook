@@ -17,8 +17,7 @@ const MenuDropDown = () => {
   const categories = {
     "18 mois à 3 ans": "18mois3ans",
     "3 ans à 4 ans": "3a4ans",
-    "5 ans à 6 ans": "5a6ans",
-    "Pro. petite enfance": "professionnelspetiteenfance",
+    "4 ans à 5 ans": "5a6ans",
   };
 
   // Ferme le menu si on clique à l'extérieur
