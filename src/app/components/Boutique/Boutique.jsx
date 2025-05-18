@@ -35,7 +35,7 @@ const Boutique = ({ categories }) => {
             alignItems: "center",
           }}
         >
-          <h1 className={style.title}>Choisis ton livre !</h1>
+          <h1 className={style.title}>Site en maintenance...</h1>
         </div>
       </div>
 
