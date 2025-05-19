@@ -35,7 +35,12 @@ const Boutique = ({ categories }) => {
             alignItems: "center",
           }}
         >
-          <h1 className={style.title}>Site en maintenance...</h1>
+         <h1 className={style.title}>
+  <a href="https://imaginabook.etsy.com" target="_blank" rel="noopener noreferrer">
+    Rendez-vous sur : https://imaginabook.etsy.com
+  </a>
+</h1>
+
         </div>
       </div>
 
