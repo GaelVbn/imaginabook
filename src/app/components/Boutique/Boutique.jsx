@@ -36,7 +36,7 @@ const Boutique = ({ categories }) => {
           }}
         >
          <h1 className={style.title}>
-  <a href="https://imaginabook.etsy.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://imaginabook.etsy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
     Rendez-vous sur : https://imaginabook.etsy.com
   </a>
 </h1>
